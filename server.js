@@ -33,7 +33,7 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util.js';
   app.get("/filteredimage", async (req, res) =>{
     filterImageFromURL(req.query.image_url).then(
       (result) => {
-         res.status(200).send(result);
+         res.status(200).sendFile(result);
       },
       (error) => {
         res.status(500).send(`Failed to download image, ${error}`);
